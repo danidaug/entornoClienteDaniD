@@ -20,7 +20,7 @@ let claves=palabras.keys();
 let valores= palabras.values();
 const res=[];
 for (let [clave, valor] of palabras){
-    res.push(clave+' : '+valor);
+    res.push('( '+clave+' : '+valor+' )');
 }
 console.log(res);
 
