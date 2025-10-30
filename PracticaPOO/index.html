@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="title"><h1>Práctica POO</h1></div>
+    <section class="main">
+        <div class="main-inner">
+        <div class="menu">
+            <form id="crearRect">
+                <h2>Crear Rectangulo</h2>
+                <label for="xValue"><strong>X: </strong></label><input type="text " name="xValue" id="xValue"><br>
+                <label for="yValue"><strong>Y: </strong></label><input type="text" name="yValue" id="yValue" ><input type="button" name="crear" id="crear" value="✓"><br>
+            </form>
+            <form id="editarDimensiones">
+                <h2>Editar Dimensiones</h2>
+                <label for="xValue"><strong>X: </strong></label><input type="text " name="xValue" id="xValueEdit"><br>
+                <label for="yValue"><strong>Y: </strong></label><input type="text" name="yValue" id="yValueEdit"><input type="button" name="crear" id="actualizar" value="✓"><br>
+            </form>
+            <div>
+                <h2>Calcular Area</h2>
+                <button class="button" id="area"> Calcular area</button>
+            </div>
+        </div>
+        <div id="rectDisplay">
+
+        </div>
+        </div>
+    </section>
+    <script src="scripts/scrpt.js"></script>
+</body>
+</html>
