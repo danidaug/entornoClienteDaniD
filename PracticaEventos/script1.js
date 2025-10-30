@@ -11,7 +11,7 @@ btnSaludar.addEventListener('click',() => {
 
 btnCrear.addEventListener('click', () => {
     const element = document.createElement('div');
-    element.innerText = 'Caja nueva';
+    element.innerText = 'Nueva Caja';
     element.style.width = '200px';
     element.style.height = '200px';
     element.style.backgroundColor = 'red';
