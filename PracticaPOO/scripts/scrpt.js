@@ -3,8 +3,12 @@ const btnCrear  = document.getElementById('crear');
 const rectDisplay = document.getElementById('rectDisplay');
 const formCreate = document.getElementById('crearRect');
 const btnArea = document.getElementById('area');
-let rectanguloSeleccionado = null;
 const btnActualizar = document.getElementById('actualizar')
+const btnCopia = document.getElementById('copia');
+
+let rectanguloSeleccionado = null;
+
+
 btnCrear.addEventListener('click', () => {
     const xValue = document.getElementById('xValue').value;
     const yValue = document.getElementById('yValue').value;
@@ -19,50 +23,17 @@ btnCrear.addEventListener('click', () => {
     rectDisplay.append(elementoHTML);
 });
 
-class Rectangulo{
-    constructor(xValue,yValue){
-        this.xValue = this.validarValor(xValue);
-        this.yValue = this.validarValor(yValue);
-    }
-    crearElemento() {
-        const div = document.createElement('div');
-        div.style.margin = 20 +'px';
-        div.style.width = this.xValue + 'px';
-        div.style.height = this.yValue + 'px';
-        div.style.backgroundColor = 'aquamarine';
-        div.style.border='2px white solid';
-        div.style.borderRadius='20px'
-        div.classList.add("element");
-        
 
-        div.addEventListener('click', () => {
-            document.querySelectorAll('.element').forEach(el => el.classList.remove('selected'));
-              div.classList.add('selected');
-              rectanguloSeleccionado = div;
-              document.getElementById('xValueEdit').value = parseInt(div.style.width);
-              document.getElementById('yValueEdit').value = parseInt(div.style.height);
-        });
-        return div;
-    }
-    validarValor(valor){
-        if(valor<=0){
-            return 1;
-        }else{
-            return valor;
-        }
+btnArea.addEventListener('click', () => {
+  if (!rectanguloSeleccionado) {
+    alert('Selecciona un rectángulo primero');
+    return;
+  }
 
-    }
-    calucalarArea (){
-        return this.xValue*this.yValue;
-    }
-}
-btnArea.addEventListener('click',() => {
-    if (!rectanguloSeleccionado) {
-        alert('Selecciona un rectángulo primero');
-        return;
-    }
-    
+  const area = rectanguloSeleccionado.rect.calcularArea();
+  document.getElementById('areaSol').innerHTML = area+'px';
 });
+
 btnActualizar.addEventListener('click', () => {
     if (!rectanguloSeleccionado) {
         alert('Selecciona un rectángulo primero');
@@ -74,4 +45,63 @@ btnActualizar.addEventListener('click', () => {
 
     rectanguloSeleccionado.style.width = newX + 'px';
     rectanguloSeleccionado.style.height = newY + 'px';
+    rectanguloSeleccionado.rect.xValue = newX;
+    rectanguloSeleccionado.rect.yValue = newY;
 });
+
+btnCopia.addEventListener('click',() =>{
+    if (!rectanguloSeleccionado) {
+        alert('Selecciona un rectángulo primero');
+        return;
+    }
+    const rect =  rectanguloSeleccionado.rect.copiarRect();
+    const elementoHTML = rect.crearElemento();
+    rectDisplay.append(elementoHTML);
+});
+
+
+class Rectangulo{
+    constructor(xValue,yValue){
+        this.xValue = this.validarValor(xValue);
+        this.yValue = this.validarValor(yValue);
+    }
+
+    crearElemento() {
+        const div = document.createElement('div');
+        div.style.margin = 20 +'px';
+        div.style.width = this.xValue + 'px';
+        div.style.height = this.yValue + 'px';
+        div.style.backgroundColor = 'aquamarine';
+        div.style.border='2px white solid';
+        div.style.borderRadius='20px'
+        div.classList.add("element");
+        
+        div.rect = this;
+
+        div.addEventListener('click', () => {
+            document.querySelectorAll('.element').forEach(el => el.classList.remove('selected'));
+              div.classList.add('selected');
+              rectanguloSeleccionado = div;
+              document.getElementById('xValueEdit').value = parseInt(div.style.width);
+              document.getElementById('yValueEdit').value = parseInt(div.style.height);
+        });
+
+        return div;
+    }
+
+    validarValor(valor){
+        if(valor<=0){
+            return 1;
+        }else{
+            return valor;
+        }
+
+    }
+    calcularArea (){
+        return this.xValue*this.yValue;
+    }
+    copiarRect(){
+        const rect =new Rectangulo(this.xValue,this.yValue);
+        return rect;
+    }
+}
