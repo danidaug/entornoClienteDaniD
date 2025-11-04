@@ -1,0 +1,48 @@
+#box{
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+}
+  #palito {
+    width: 20px;
+    height: 100px;      /* Altura inicial, da igual porque luego la cambia JS */
+    background: red;
+ 
+    transition: height .3s; /* Opcional: animación suave */
+  }
+
+  #contenedor {
+    height: 200px;        /* altura del área total */
+    width: 40px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: flex-end; /* <- Esto hace que el palito se mantenga abajo */
+}
+#chart {
+    width: 600px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;   /* <-- fuerza a colocar las velas a la derecha */
+    align-items: center; /* <-- ancla las velas abajo */
+    overflow-x: auto;
+    gap: 4px;
+    padding: 10px;
+}
+
+.candle {
+    display: flex;
+    flex-direction: column;      /* <-- vela se arma vertical */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mecha {
+    width: 3px;
+    background: black;
+}
+
+.cuerpo {
+    width: 20px;
+    background: green;
+}
