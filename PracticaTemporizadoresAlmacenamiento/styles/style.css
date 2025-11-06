@@ -1,48 +1,66 @@
-#box{
-    height: 200px;
-    width: 200px;
-    border: 2px solid black;
-}
-  #palito {
-    width: 20px;
-    height: 100px;      /* Altura inicial, da igual porque luego la cambia JS */
-    background: red;
- 
-    transition: height .3s; /* Opcional: animación suave */
-  }
-
-  #contenedor {
-    height: 200px;        /* altura del área total */
-    width: 40px;
-    border: 1px solid #000;
-    display: flex;
-    align-items: flex-end; /* <- Esto hace que el palito se mantenga abajo */
-}
-#chart {
-    width: 600px;
-    height: 300px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;   /* <-- fuerza a colocar las velas a la derecha */
-    align-items: center; /* <-- ancla las velas abajo */
-    overflow-x: auto;
-    gap: 4px;
-    padding: 10px;
+*{
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
 }
 
-.candle {
+.title{
+    padding: 20px;
+    text-align: center;
+    width: 100vw;
+    height: 40px;
+    border-bottom: 1px white solid;
+    background-image: linear-gradient( rgb(34, 34, 34) , rgb(20, 0, 68));
+    a{
+        text-decoration: none;
+    }
+    padding-bottom: 30px;
+}
+
+body{
+    background-image: linear-gradient( to right, rgb(20, 0, 68), rgb(34, 34, 34) );
+    
+    
+}
+.container{
+    margin-top: 30vh;
     display: flex;
-    flex-direction: column;      /* <-- vela se arma vertical */
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
+#contenedor{
 
-.mecha {
-    width: 3px;
-    background: black;
+    padding-top: 40px;
+    width: 30vw;
+    border: 1px white solid;
+    position: relative;
+    border-radius: 10px;
 }
-
-.cuerpo {
-    width: 20px;
-    background: green;
+#palito{
+    height: 40px;
+    position: fixed;
+    
+}
+#name{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+.val{
+    color: rgb(125, 197, 125);
+}
+.leyenda{
+    margin-top: 40px;
+    
+    display: flex;
+    gap: 19px;
+    span{
+        color: rgb(204, 204, 204);
+        font-size: 10px;
+    }
+    margin-bottom: 5px;
 }
