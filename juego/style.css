@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#juego {
+    width: 800px;
+    height: 600px;
+    background-color: black;
+    position: relative;
+    border: 3px solid white;
+    overflow: hidden; 
+}
+
+#jugador {
+    width: 50px;
+    height: 50px;
+    background-color: white; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: none;
+    z-index: 10; 
+}
+
+/* Estilos de la estela */
+.estela {
+    position: absolute;
+    width: 20px; 
+    height: 20px;
+    background-color: rgba(150, 150, 150, 0.5); 
+    border-radius: 50%; 
+    opacity: 0; 
+    animation: fadeOut 1.5s forwards; 
+    z-index: 5; 
+    pointer-events: none; 
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0.5; 
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0; 
+        transform: scale(0.5); 
+    }
+}
+
+/* Nuevos estilos para los obstáculos (puntos rojos) */
+.obstaculo {
+    position: absolute;
+    width: 15px; /* Tamaño del obstáculo */
+    height: 15px;
+    background-color: red; /* Color rojo solicitado */
+    border-radius: 50%; /* Para que sean puntos redondos */
+    z-index: 7; /* Por encima de la estela, por debajo del jugador */
+    pointer-events: none; /* No interfieren con el ratón */
+}
+
+/* Estilos para la pantalla de "Game Over" */
+#gameOverScreen {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente oscuro */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 3em;
+    text-align: center;
+    display: flex; /* Para centrar contenido */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Asegura que esté por encima de todo */
+}
+
+#gameOverScreen button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #4CAF50; /* Un verde amigable */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
