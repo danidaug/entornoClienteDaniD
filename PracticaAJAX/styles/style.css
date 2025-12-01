@@ -8,6 +8,11 @@ body{
     min-height: 100vh;
     background-image: url('../img/imageBg.png');
     font-family: Arial, sans-serif;
+    
+    a{
+        color: white;
+        margin: 20px;
+    }
 }
 
 #results{
