@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video src="tierra.mp4" id="video" autoplay muted></video><br>
+    <button id="play">Play</button>
+    <button id="v050">x0.50</button>
+    <button id="v1">x1</button>
+    <button id="v2">x2</button>
+    <script>
+        const video = document.getElementById('video');
+        const play = document.getElementById('play');
+        const v050 = document.getElementById('v050');
+        const v1 = document.getElementById('v1');
+        const v2 = document.getElementById('v2');
+        
+        play.addEventListener('click', () => {
+             if (video.paused) {
+                video.play();
+                play.textContent = "Pause";
+            } else {
+                video.pause();
+                play.textContent = "Play";
+            }
+            
+        })
+
+        v050.addEventListener('click', () => {
+            video.playbackRate = 0.5;
+        });
+
+        v1.addEventListener('click', () => {
+            video.playbackRate = 1;
+        });
+
+        v2.addEventListener('click', () => {
+            video.playbackRate = 2;
+        });
+    </script>
+</body>
+</html>

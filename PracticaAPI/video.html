@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDEO</title>
+    <style>
+        *{
+            margin: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            text-align: center;
+            background-image: url('./media/imageBg.png');
+            font-size: 40px;
+        }
+        nav{
+            
+            padding: 40px;
+            margin-bottom: 50px;
+           
+            a{
+                text-decoration: none;
+                
+            }
+           
+        }
+        #video{
+            height: 60vh;
+            width: 60vw;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>PACTICA APIs</h2>
+        <a href="../index.html">INICIO</a>
+    </nav>
+    <video src="media/tierra.mp4" id="video" autoplay muted></video>
+    <div id="output"></div>
+    <script>
+        const vid = document.getElementById('video');
+        const output = document.getElementById('output')
+        vid.pause();
+        vid.addEventListener('click',()=>{
+            console.log('click')
+            if(vid.paused){
+                vid.play();
+            }else{
+                vid.pause();
+            }
+        })
+        vid.addEventListener('contextmenu', () =>{
+            output.innerHTML='';
+            event.preventDefault();
+            const p= document.createElement('p')
+            let duracion = vid.duration;
+            duracion  = Math.floor(duracion % 60);
+            p.innerText =`Duracion: 00:${duracion}`;
+            output.appendChild(p);
+        })
+    </script>
+</body>
+</html>

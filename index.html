@@ -7,22 +7,50 @@
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
+            background-image: url('./PracticaAPI/media/imageBg.avif');
             margin: 0;
+            animation: moveBackground 100s linear infinite;
+            
             div{
-                background-color: rgb(132, 157, 240);
+                h1{
+                    font-size: 60px;
+                    color: white;
+                }
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
                 padding: 30px;
                 text-align: center;
                 a{
+                    font-size: 30px;
                     text-decoration: none;
                     margin-right: 20px;
-                    color: black;
+                    color: rgb(255, 255, 255);
+                    transition: color 0.5s ease;
                     &:hover{
-                        color: rgba(0, 0, 0, 0.274);
+                        color: #18e4ff;
+                        
+                        animation: pulse 0.5s linear;
                     }
                 }
             }
                
+        }
+
+        @keyframes pulse {
+            0%,100%{
+                transform: scale(1);
+            }
+            50%{transform: scale(1.2);}
+        }
+
+        @keyframes moveBackground {
+            from {
+                background-position: 0% 0%;
+            }
+            to {
+                background-position: 0% 15000%;
+            }
         }
     </style>
 </head>
@@ -35,6 +63,7 @@
         <a href="PracticaPOO/index.html">Práctica POO</a>
         <a href="PracticaTemporizadoresAlmacenamiento/index1.html">Práctica Temporizadores y Almacenamiento</a>
         <a href="PracticaAJAX/index1.html">Práctica AJAX</a>
+        <a href="PracticaAPI/index1.html">Práctica APIs</a>
     </div>
 </body>
 </html>
